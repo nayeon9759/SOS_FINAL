@@ -71,7 +71,7 @@ select,textarea,input[type="text"]{width:100%;padding:8px;border-radius:6px;back
     padding: 20px;
 }
 
-/* Charts (Summary Card) Style */
+/* ✅ 통계 요약 카드 스타일 */
 .summary-cards {
     margin-top: 25px;
     padding-top: 15px;
@@ -79,7 +79,7 @@ select,textarea,input[type="text"]{width:100%;padding:8px;border-radius:6px;back
 }
 .summary-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 모바일 대응 강화 */
     gap: 10px;
 }
 .stat-card {
@@ -100,6 +100,10 @@ select,textarea,input[type="text"]{width:100%;padding:8px;border-radius:6px;back
     font-size: 1.5rem;
     color: var(--primary); /* 빨간색 강조 */
     font-weight: 900;
+}
+.chart-title{ /* 기존 제목 스타일은 재활용 */
+    color: var(--primary);
+    margin: 20px 0 10px 0;
 }
 
 /* guide */
