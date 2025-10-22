@@ -1,15 +1,30 @@
 /* 기존 디자인 그대로 유지 */
 :root{
-  --bg:#0f1724;
-  --primary:#ff4d4f;
-  --accent:#ff9f43;
-  --card:#1f2a38;
-  --muted:#b9c0d7;
+  --bg:#0f1724; /* 어두운 배경 */
+  --primary:#ff4d4f; /* 빨간색 계열 강조 */
+  --accent:#ff9f43; /* 주황색 계열 보조 강조 */
+  --card:#1f2a38; /* 카드 배경 */
+  --muted:#b9c0d7; /* 은은한 텍스트 */
+  --text-main: #e6eef8; /* 확실한 메인 텍스트 색상 */
 }
 
 *{box-sizing:border-box}
-body{margin:0; font-family: "Noto Sans KR", sans-serif; background:var(--bg); color:#e6eef8; padding:20px;}
-.wrap{max-width:900px;margin:0 auto;border-radius:12px;background:var(--card);padding:16px;box-shadow:0 6px 20px rgba(0,0,0,0.5);}
+/* ⭐️ body에 기본 배경과 텍스트 색상 강제 적용 */
+body{
+    margin:0; 
+    font-family: "Noto Sans KR", sans-serif; 
+    background:var(--bg); 
+    color:var(--text-main); 
+    padding:20px;
+}
+.wrap{
+    max-width:900px;
+    margin:0 auto;
+    border-radius:12px;
+    background:var(--card);
+    padding:16px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.5);
+}
 
 /* HERO */
 .hero{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.1)}
@@ -18,17 +33,30 @@ body{margin:0; font-family: "Noto Sans KR", sans-serif; background:var(--bg); co
 
 /* TABS */
 .tabs{display:flex; gap:6px; margin:12px 0;}
-.tab-btn{flex:1;padding:8px 10px;border-radius:8px;background:var(--card);border:1px solid rgba(255,255,255,0.1);color:var(--muted);cursor:pointer;transition:0.2s}
-.tab-btn.active{background:var(--primary);color:white;box-shadow:0 4px 12px rgba(255,77,79,0.4);}
+.tab-btn{
+    flex:1;
+    padding:8px 10px;
+    border-radius:8px;
+    background:var(--card);
+    border:1px solid rgba(255,255,255,0.1);
+    color:var(--muted);
+    cursor:pointer;
+    transition:0.2s
+}
+.tab-btn.active{
+    background:var(--primary);
+    color:white;
+    box-shadow:0 4px 12px rgba(255,77,79,0.4);
+}
 
-/* submissions */
+/* submissions list box styling */
 .submissions-list{
   margin-top:12px;
   display:grid;
   gap:8px;
-  max-height:300px; /* 목록이 가질 수 있는 최대 높이 지정 */
-  overflow:auto;   /* 내용이 max-height를 초과하면 스크롤바 생성 */
-  padding-right:4px; /* 스크롤바가 생길 공간 확보 */
+  max-height:300px;
+  overflow:auto;   
+  padding-right:4px;
 }
 
 /* PANELS */
@@ -43,7 +71,16 @@ body{margin:0; font-family: "Noto Sans KR", sans-serif; background:var(--bg); co
 .options label{display:flex;align-items:center;padding:8px;border-radius:6px;background:rgba(255,255,255,0.02);cursor:pointer;transition:0.2s}
 .options input{margin-right:6px}
 
-select,textarea,input[type="text"]{width:100%;padding:8px;border-radius:6px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);color:white;font-size:14px;}
+/* ⭐️ 입력 필드 색상 명확화 */
+select,textarea,input[type="text"]{
+    width:100%;
+    padding:8px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.1);
+    color:var(--text-main); /* 확실한 입력 텍스트 색상 */
+    font-size:14px;
+}
 
 /* Buttons */
 .btn{padding:8px 12px;border-radius:6px;font-weight:700;cursor:pointer;border:none;transition:0.2s}
@@ -61,11 +98,11 @@ select,textarea,input[type="text"]{width:100%;padding:8px;border-radius:6px;back
 /* footer */
 .footer{margin-top:12px;text-align:center;font-size:12px;color:var(--muted)}
 
-/* ⭐️ YouTube 영상 섹션 추가 (A+ 퀄리티 요소) */
+/* YouTube 영상 섹션 */
 .video-guide{
   margin-top: 20px;
   padding: 16px;
-  background: rgba(255, 77, 79, 0.05); /* Primary 색상 기반의 부드러운 배경 */
+  background: rgba(255, 77, 79, 0.05);
   border-radius: 8px;
   border: 1px solid var(--primary);
 }
@@ -79,8 +116,7 @@ select,textarea,input[type="text"]{width:100%;padding:8px;border-radius:6px;back
 .video-container{
   position: relative;
   width: 100%;
-  /* 16:9 비율 유지를 위한 패딩 트릭 */
-  padding-bottom: 56.25%; 
+  padding-bottom: 56.25%; 
   height: 0;
   overflow: hidden;
   border-radius: 6px;
@@ -100,16 +136,8 @@ select,textarea,input[type="text"]{width:100%;padding:8px;border-radius:6px;back
 }
 
 /* 기존 chart 관련 스타일 제거 */
-.charts h4{
-  /* 이전 코드에 있던 chart-title 대신 h4 사용 */
-  font-size: 16px;
-  color: var(--primary);
-  margin-bottom: 12px;
-}
 .charts canvas{
-  /* 캔버스 태그에 대한 스타일링 제거 */
-  display: none; 
+  display: none; 
 }
-
 
 @media(max-width:640px){.options.grid{grid-template-columns:1fr}}
